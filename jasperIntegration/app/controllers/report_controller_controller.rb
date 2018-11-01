@@ -35,40 +35,6 @@ class ReportControllerController < ApplicationController
   java_import Java::net::sf::jasperreports::engine::JasperCompileManager
   java_import Java::DataBean
 
-  def index
-    pp "in index"
-  jasper_name = 'TestReport'
-  da = [{name: 'Abcd', country: 'India'}].to_a
-
-
-    # df_content = Rasper::Report.generate('TestReport', [
-    #     { name: 'Linus', country: 'Linux' }
-    #     ])
-
-    # pp "pdf content0 ", df_content
-    #
-
-    # xpath_criteria = "/hash/#{jasper_name}/#{jasper_name.singularize}"
-    # pp 'xpath_criteria', xpath_criteria
-    # data = {jasper_name => da}.to_xml
-    # byteinpstream = ByteArrayInputStream.new(data.to_java_bytes)
-    # pp 'byteinpstream',byteinpstream
-
-    # ff = File.open('E:\report\templates\output\pdfreport.csv', 'wb' )
-    # ff.write(df_content)
-    # ff.close
-
-
-
-    #  @label_image = Base64.decode64(df_content  ).html_safe   #image_hex is a text field where I store the label in db
-    # send_data @label_image, :type => 'application/pdf', :disposition => 'inline', :filename => 'test.pdf'
-
-    
-
-
-  end
-
-
 
 
   def generate_xls_report
@@ -168,54 +134,7 @@ class ReportControllerController < ApplicationController
 
   end
 
-  def run_report
 
 
-     pp "run report"
-
-
-     Rasper::Config.configure do |config|
-       config.jar_dir = '/dir/for/jars'
-       config.jasper_dir = "E:/report/templates/sales"
-       config.locale = 'pt_BR'
-     end
-
-    pp "compiling jrsml"
-     #Rasper::Compiler.compile("E:/report/templates/sales/Blank_A4_1.jrxml", "E:/report/templates/output")
-     Rasper::Compiler.compile("E:/report/templates/sales/TestReport.jrxml")
-
-
-    #       pp "pdf content0 ", df_content
-
-
-    # ff = File.open('E:\report\templates\output\pdfreports.pdf', 'wb' )
-    # ff.write(df_content)
-    # ff.close
-
-
-    # @label_image = Base64.decode64(@someval).html_safe   #image_hex is a text field where I store the label in db
-    # send_data @label_image, :type => 'application/pdf', :disposition => 'inline', :filename => 'test.pdf'
-
-
-  end
-
-  def read_pdf
-    @pdfarray
-    @someval = "ayush"
-    File.open("file:///C:/Users/Ayush/AppData/Local/Temp/report6022217628498864562.pdf","r") do |output|
-      pp "printing pdf"
-      @pdfarray = output.read
-      pp @pdfarray
-
-
-
-    end
-
-   f=  File.open('E:\report\templates\output\pdfreportss.pdf', 'wb' )
-   f.write(@pdfarray)
-
-    f.close
-
-  end
-
+  
 end
