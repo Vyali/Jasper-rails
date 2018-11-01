@@ -1,0 +1,14 @@
+development:
+  url: 'http://localhost:8080/jasperserver/'
+  username: 'jasperadmin'
+  password: 'jasperadmin'
+
+test:
+  url: 'http://localhost:8080/jasperserver/'
+  username: 'jasperadmin'
+  password: 'jasperadmin'
+
+production:
+  url: 'http://localhost:8080/jasperserver/'
+  username: 'jasperadmin'
+  password: 'jasperadmin'
